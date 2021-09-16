@@ -21,7 +21,7 @@ int main()
         {
             cout << "(A + B) / C - C / B = " << (A + B) / C - C / B << '\n'; // 15 3 18
         }
-        else if (C % B != 0)
+        else /*if (C % B != 0)*/
         {
             cout << "(A + B) / C + B * C = " << (A + B) / C + B * C << '\n'; // 10 20 30
         }
