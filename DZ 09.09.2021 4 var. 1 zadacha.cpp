@@ -32,7 +32,6 @@ int main()
     }
     return 0;
 
-
     /*if (((A + B) % C == 0) && (C % B == 0))
     {
         cout << "(A + B) / C - C / B = " << (A + B) / C - C / B << '\n'; // 15 3 18
