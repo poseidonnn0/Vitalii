@@ -37,7 +37,7 @@ int SumDigits(int n) // Сумма цифр числа
 int main()
 {
 	setlocale(LC_ALL, "Rus");
-	cout << "Лабораторная работа на 30.09.2021. Кондратьев Виталий, 4 вариант. Задача №3" << endl;
+	cout << "Лабораторная работа на 30.09.2021. Кондратьев Виталий, 4 вариант. Задача №2" << endl;
 	std::ifstream in("input.txt");
 	std::ofstream out("output.txt");
 	if (in)
@@ -97,32 +97,42 @@ int main()
 int main()
 {
 	setlocale(LC_ALL, "Rus");
-	cout << "Лабораторная работа на 30.09.2021. Кондратьев Виталий, 4 вариант. Задача №3" << endl;
+	cout << "Лабораторная работа на 30.09.2021. Кондратьев Виталий, 4 вариант. Задача №2" << endl;
 	std::ifstream in("input.txt");
 	std::ofstream out("output.txt");
 	if (in)
 	{
-		int n, OneMasI , OneMasJ , OneMasImin = INT_MAX, OneMasJmin = INT_MAX; // OneMasImin - минимальная цифра во всём числе, OneMasJmin - минимальная цифра во всём следующем числе (j)
-		int OstatI , OstatJ ;
+		int n, OneMasI , OneMasJ , SumI = 0, SumJ = 0; 
 		int mas[N];
 		in >> n;
 		for (int i = 0; i < n; i++)
 		{
 			in >> mas[i];
 		}
+		for (int i = 0; i < n; i++)
+		{
+			out << mas[i] << " ";
+		}
+
+		out << endl << endl;
+
+
 		for (int i = 0; i < n-1; i++) // первая сортировка
+		{
+			SumI = 0;
+			OneMasI = mas[i];
+			while (OneMasI > 9)
 			{
-				OneMasI = mas[i];
-				out << OneMasI << endl;
-				while (OneMasI > 9)
-				{
-					OneMasI = OneMasI / 10;
-				}
-				for (int j = i+1; j < n; j++)
+				SumI += (OneMasI % 10); // Считаем сумму цифр в числе i
+				OneMasI = OneMasI / 10;
+			}
+			for (int j = i+1; j < n; j++)
 				{
 					OneMasJ = mas[j];
+					SumJ = 0;
 					while (OneMasJ > 9)
 					{
+						SumJ += (OneMasJ % 10);
 						OneMasJ /= 10;
 					}
 					if (OneMasI != OneMasJ)
@@ -132,8 +142,19 @@ int main()
 							std::swap(mas[i], mas[j]);
 						}
 					}
+					else if (SumI != SumJ)
+					{
+						if (SumI > SumJ)
+						{
+							std::swap(mas[i], mas[j]);
+						}
+					}
+					else if (mas[i] > mas[j])
+					{
+						std::swap(mas[i], mas[j]);
+					}
 				}
-			}
+		}
 		for (int i = 0; i < n; i++)
 		{
 			out << mas[i] << " ";
