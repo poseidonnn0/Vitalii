@@ -62,18 +62,18 @@ int main()
 			{
 				if (FirstDig(mas[i]) != FirstDig(mas[j]))
 				{
-					if (FirstDig(mas[i]) >= FirstDig(mas[j]))
+					if (FirstDig(mas[i]) > FirstDig(mas[j]))
 					{
 						std::swap(mas[i],mas[j]);
 					}
 				else if (SumDigits(mas[i]) != SumDigits(mas[j]))
 					{
-						if (SumDigits(mas[i]) >= SumDigits(mas[j]))
+						if (SumDigits(mas[i]) > SumDigits(mas[j]))
 						{
 							std::swap(mas[i], mas[j]);
 						}
 					}
-				else if (mas[i] >= mas[j])
+				else if (mas[i] > mas[j])
 					{
 						std::swap(mas[i], mas[j]);
 					}
