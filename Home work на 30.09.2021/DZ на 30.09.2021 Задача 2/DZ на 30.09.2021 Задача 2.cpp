@@ -55,12 +55,6 @@ int main()
 		{
 			in >> mas[i];
 		}
-		for (int i = 0; i < n; i++)
-		{
-			out << mas[i] << " ";
-		}
-
-		out << endl << endl;
 
 		for (int i = 0; i < n - 1; i++) // sort1
 		{
@@ -129,13 +123,6 @@ int main()
 		{
 			in >> mas[i];
 		}
-		for (int i = 0; i < n; i++)
-		{
-			out << mas[i] << " ";
-		}
-
-		out << endl << endl;
-
 
 		for (int i = 0; i < n-1; i++) // первая сортировка
 		{
