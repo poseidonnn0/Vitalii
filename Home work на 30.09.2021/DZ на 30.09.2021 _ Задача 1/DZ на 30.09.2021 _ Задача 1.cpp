@@ -18,7 +18,7 @@ int main()
 	std::ofstream out("output.txt");
 	if (in)
 	{
-		bool f = true; // простое
+		bool flag = false; // простое
 		int n, x;
 		int mas[N];
 
@@ -30,26 +30,22 @@ int main()
 		}
 		for (int i = 0; i < n; i++)
 		{
+			bool f = true; // простое
 			x = mas[i];
-			for (int d = 2; d <= sqrt(x); d++) // 15  = 3*5
+			for (int d = 2; d <= sqrt(x); d++) // 15  = 3*5, 49 = 7*7
 			{
 				if (x % d == 0)
 				{
 					f = false; // составное
-					break;
-				}
-				else
-				{
-					f = true;
-					break;
 				}
 			}
-			if ((mas[i] == 2) || (mas[i] == 3))
+			if (f)
 			{
-				f = true;
+				flag = true;
+				break;
 			}
 		}
-		if (f)
+		if (flag)
 		{
 			out << "Среди последовательности было обнаружено простое число. Последовательность НЕ была отсортирована по невозрастанию: " << endl;
 			for (int i = 0; i < n; i++)
