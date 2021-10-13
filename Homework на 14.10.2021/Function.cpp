@@ -74,7 +74,7 @@ namespace VK
 			for (int j = 0; j < m; j++)
 			{
 				int x = abs(mas[i][j]);
-				bool f = true; // простое
+				bool f = true; // РїСЂРѕСЃС‚РѕРµ
 				if (x < 2)
 				{
 					f = true;
