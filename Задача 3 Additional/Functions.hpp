@@ -3,13 +3,13 @@
 
 namespace VK
 {
-	void Read(int& n); // Вводим число
+	void Read(int& n); // Р’РІРѕРґРёРј С‡РёСЃР»Рѕ
 
-	void Write(int n); // Выводим число
+	void Write(int n); // Р’С‹РІРѕРґРёРј С‡РёСЃР»Рѕ
 
-	int MaxDigit(int n); // Максимальная цифра в числе
+	int MaxDigit(int n); // РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ С†РёС„СЂР° РІ С‡РёСЃР»Рµ
 
-	void Repeat(int n); // Поиск повторяющихся цифр
+	void Repeat(int n); // РџРѕРёСЃРє РїРѕРІС‚РѕСЂСЏСЋС‰РёС…СЃСЏ С†РёС„СЂ
 
-	int sumDigit(int n); // Сумма цифр числа
+	int sumDigit(int n); // РЎСѓРјРјР° С†РёС„СЂ С‡РёСЃР»Р°
 }
