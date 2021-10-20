@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15) # Проверка версии CMake.
+cmake_minimum_required(VERSION 3.21) # Проверка версии CMake.
 									 # Если версия установленой программы
 									 # старее указаной, произайдёт аварийный выход.
 
@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 include_directories("inc/")
 
-add_executable("${PROJECT_NAME}" Задача 3 Additional.cpp
+add_executable("${PROJECT_NAME}" Zadacha3Additional.cpp
 					inc/Functions.hpp
 					
 					src/Functions.cpp
