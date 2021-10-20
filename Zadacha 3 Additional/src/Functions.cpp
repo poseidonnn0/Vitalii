@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Functions.hpp"
+#include <Functions.hpp>
 
 namespace VK
 {
@@ -18,7 +18,7 @@ namespace VK
 		int x = n;
 		int Digit = 0;
 		int MaxDigi = INT_MIN;
-		while (x > 9)
+		while (x != 0)
 		{
 			Digit = x % 10;
 			if (Digit > MaxDigi)
