@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.21) # Проверка версии CMake.
+									 # Если версия установленой программы
+									 # старее указаной, произайдёт аварийный выход.
+
+set(PROJECT_NAME HomeWork(2lab))				 # имя проекта		 
+project("${PROJECT_NAME}")
+
+
+set(CMAKE_CXX_STANDARD 17)			 # устанавливаем 17 стандарт языка
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+
+include_directories("")
+
+add_executable("${PROJECT_NAME}" DZ 09.09.2021 4 var. 2 zadacha.cpp
+DZ 09.09.2021 4 var. 1 zadacha.cpp
+)
