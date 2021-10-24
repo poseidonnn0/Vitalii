@@ -37,7 +37,7 @@ namespace VK
 		}
 	}
 
-	bool PresenceDig8(int n) // Проверка на наличие цифры 8 в числе
+	bool PresenceDig8(int n) // РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ С†РёС„СЂС‹ 8 РІ С‡РёСЃР»Рµ
 	{
 		int dig = 0;
 		while (n != 0)
