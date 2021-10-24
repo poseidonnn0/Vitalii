@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <string>
-#include "SomeFunctions.hpp"
+#include <SomeFunctions.hpp>
 
 #define N 10000
 

@@ -6,7 +6,6 @@ debug
 *.opendb
 *.db
 *.ipch
-*.sln
 *.user
 *.filters
 *.vcxproj

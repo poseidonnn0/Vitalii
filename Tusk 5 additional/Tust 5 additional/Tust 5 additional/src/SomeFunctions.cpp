@@ -1,10 +1,8 @@
 #include <iostream>
-#include "SomeFunctions.hpp"
+#include <SomeFunctions.hpp>
 
 namespace VK
 {
-
-
 	void Read(int& n, int* mas)
 	{
 		for (int i = 0; i < n; i++)
