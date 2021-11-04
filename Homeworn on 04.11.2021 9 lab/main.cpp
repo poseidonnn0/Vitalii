@@ -30,7 +30,7 @@ int main()
     shape2.setTexture(&texture2);
     shape2.setTextureRect(sf::IntRect(0, 0, 72, 85));
     shape2.setOrigin(72, 85);
-    int shape2_x = 400, shape2_y = 715;
+    float shape2_x = 400, shape2_y = 715;
     shape2.setPosition(shape2_x, shape2_y);
 
 
@@ -61,11 +61,18 @@ int main()
         {
             shape_y = 125;
         }
+
+
         shape2_y = shape2_y - 2;
         if (shape2_y < 85)
         {
             shape2_y = 85;
         }
+        else if ((shape2_y > 90) && (shape2_y < 200))
+        {
+            shape2_y = shape2_y + 1.65;
+        }
+          
         /*else
         {
             shape2.move(0, -2);
@@ -76,6 +83,7 @@ int main()
         {
             shape3_y = 0;
         }
+
         //Gradus++;
         //shape3.setRotation(Gradus);
 
