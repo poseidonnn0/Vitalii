@@ -16,9 +16,9 @@ int main()
     sf::Texture texture2;
     sf::Texture texture3;
     // Если изображение в Build → texture.loadFromFile("Tor.jpeg");
-    texture.loadFromFile("C:\\Users\\Vitaliy\\OneDrive\\Documents\\Git\\Repositories\\sfml-sample-1-work\\sfml-sample-1\\ext\\image\\Tor.jpeg");
-    texture2.loadFromFile("C:\\Users\\Vitaliy\\OneDrive\\Documents\\Git\\Repositories\\sfml-sample-1-work\\sfml-sample-1\\ext\\image\\Pivo.png");
-    texture3.loadFromFile("C:\\Users\\Vitaliy\\OneDrive\\Documents\\Git\\Repositories\\sfml-sample-1-work\\sfml-sample-1\\ext\\image\\Besk.jpg");
+    texture.loadFromFile("images\\Tor.jpeg");
+    texture2.loadFromFile("images\\Pivo.png");
+    texture3.loadFromFile("images\\Besk.jpg");
     shape.setTexture(&texture);
     texture.setSmooth(true);
     shape.setTextureRect(sf::IntRect(27, 27, 125, 125));
