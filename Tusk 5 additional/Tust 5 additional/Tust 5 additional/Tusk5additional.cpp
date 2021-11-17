@@ -1,11 +1,9 @@
 ﻿#include <iostream>
 #include <string>
+#include <algorithm>
 #include <SomeFunctions.hpp>
 
-#define N 10000
-
-//Строкой
-//Динамический массив?
+#define N 20000
 
 int main()
 {
@@ -16,24 +14,21 @@ int main()
 	int n;
 	std::cout << "Введите количество чисел в последовательности натуральных чисел = ";
 	std::cin >> n;
-	int mas[N];
+	long int mas[N];
 	VK::Read(n, mas);
+
 	for (int i = 0; i < n; i++)
 	{
-		if (!VK::ProductDigits(mas[i]))
+		mas[i] = VK::ProductDigits(mas[i]);
+	}
+	for (int i = 0; i < n; i++)
+	{
+		if (VK::PresenceDig8(mas[i]))
 		{
-			VK::Write1(mas[i]);
-			//std::delete(mas[i]); ???
-		}
-		if ((VK::PresenceDig8(mas[i])) && (!VK::ProductDigits(mas[i])))
-		{
-			VK::Write1(mas[i]);
+			mas[n+i] = mas[i];
 		}
 	}
-	
+	std::sort(mas, mas + 2*n);
+	VK::Write(n, mas);
 	return 0;
 }
-    //std::string s;
-	//std::copy(mas, mas + 2, mas + 1);
-	//std::cout << s;
-	// delete[] mas;

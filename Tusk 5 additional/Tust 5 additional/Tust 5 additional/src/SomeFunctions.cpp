@@ -3,52 +3,53 @@
 
 namespace VK
 {
-	void Read(int& n, int* mas)
+	void Read(int& n, long int* mas)
 	{
-		for (int i = 0; i < n; i++)
+		for (int i = 0; i < n*2; i++)
 		{
-			mas[i] = i + 1;
+			mas[i] = (i < n) ? i + 1 : 0;
 		}
 	}
 
-
-	void Write1(int& n)
-	{
-		std::cout << n << " ";
-	}
-
-
-	bool ProductDigits(int n)
+	int ProductDigits(int n)
 	{
 		int product = 1;
-		while (n != 0)
+		int x = n;
+		while (x != 0)
 		{
-			product *= n % 10;
-			n /= 10;
+			product *= x % 10;
+			x /= 10;
 		}
-
-		if (product == 144)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return (product == 144) ? 0 : n;
 	}
 
 	bool PresenceDig8(int n) // Проверка на наличие цифры 8 в числе
 	{
 		int dig = 0;
-		while (n != 0)
+		int x = n;
+		while (x != 0)
 		{
-			dig = n % 10;
+			dig = x % 10;
 			if (dig == 8)
 			{
 				return true;
 			}
-			n = n / 10;
+			x = x / 10;
 		}
 	}
 
+	void Write(int& n, long int* mas)
+	{
+		for (int i = 0; i < n*2; i++)
+		{
+			if (mas[i] == 0)
+			{
+				std::cout << "";
+			}
+			else
+			{
+				std::cout << mas[i] << " ";
+			}
+		}
+	}
 }
