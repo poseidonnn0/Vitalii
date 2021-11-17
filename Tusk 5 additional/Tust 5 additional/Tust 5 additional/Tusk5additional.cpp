@@ -14,6 +14,7 @@ int main()
 	int n;
 	std::cout << "Введите количество чисел в последовательности натуральных чисел = ";
 	std::cin >> n;
+	int n2 = n * 2;
 	long int mas[N];
 	VK::Read(n, mas);
 
@@ -28,7 +29,7 @@ int main()
 			mas[n+i] = mas[i];
 		}
 	}
-	std::sort(mas, mas + 2*n);
+	std::sort(mas, mas + n2);
 	VK::Write(n, mas);
 	return 0;
 }
