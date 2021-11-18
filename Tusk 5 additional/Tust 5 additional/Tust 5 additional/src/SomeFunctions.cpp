@@ -26,22 +26,21 @@ namespace VK
 	bool PresenceDig8(int n) // Проверка на наличие цифры 8 в числе
 	{
 		int dig = 0;
-		int x = n;
-		while (x != 0)
+		while (n != 0)
 		{
-			dig = x % 10;
+			dig = n % 10;
 			if (dig == 8)
 			{
 				return true;
 			}
-			x = x / 10;
+			n /= 10;
 		}
 		return false;
 	}
 
 	void Write(int& n, long int* mas)
 	{
-		for (int i = 0; i < n*2; i++)
+		for (int i = 0; i < n; i++)
 		{
 			if (mas[i] == 0)
 			{
