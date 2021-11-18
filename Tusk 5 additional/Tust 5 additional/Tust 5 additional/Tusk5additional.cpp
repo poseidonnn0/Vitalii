@@ -11,17 +11,21 @@ int main()
 	// Удалить из последовательности числа, произведение цифр которых равно 144, а среди оставшихся продублировать числа, содержащие цифру 8.
 
 	setlocale(LC_ALL, "Rus");
-	int n;
+	int n, j = 0;
 	std::cout << "Введите количество чисел в последовательности натуральных чисел = ";
 	std::cin >> n;
 	int n2 = n * 2;
 	long int mas[N];
 	VK::Read(n, mas);
-
 	for (int i = 0; i < n; i++)
 	{
-		mas[i] = VK::ProductDigits(mas[i]);
+		if (VK::ProductDigits(mas[i] != 144))
+		{
+			mas[j] = mas[i];
+			j++;
+		}
 	}
+	n = j;
 	for (int i = 0; i < n; i++)
 	{
 		if (VK::PresenceDig8(mas[i]))

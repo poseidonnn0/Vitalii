@@ -20,7 +20,7 @@ namespace VK
 			product *= x % 10;
 			x /= 10;
 		}
-		return (product == 144) ? 0 : n;
+		return product;
 	}
 
 	bool PresenceDig8(int n) // Проверка на наличие цифры 8 в числе
@@ -36,6 +36,7 @@ namespace VK
 			}
 			x = x / 10;
 		}
+		return false;
 	}
 
 	void Write(int& n, long int* mas)
