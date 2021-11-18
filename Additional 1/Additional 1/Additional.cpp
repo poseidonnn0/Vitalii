@@ -16,6 +16,6 @@ int main()
 		while (G * Q1 + D * Q2 < A) { D++; }
 	}
 	while (count2 * Q2 < A) { count2++; }
-	min1 = std::min(SUM, min1);
+	min1 = std::min(count2*P2, min1);
 	std::cout << '\n' << min1;
 }
