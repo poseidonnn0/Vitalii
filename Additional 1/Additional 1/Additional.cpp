@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <algorithm>
+#include <algorithm> 
 int main()
 {
 	int Q1, P1, Q2, P2, A, mA, min1 = INT_MAX, SUM=0, G, D=0, count1 = 0, count2 = 0;
@@ -11,7 +11,7 @@ int main()
 	while (G != 0)
 	{
 		SUM = G * P1 + D * P2;
-		min1 = std::min(SUM,min1);
+		min1 = std::min(SUM, min1);
 		G--;
 		while (G * Q1 + D * Q2 < A) { D++; }
 	}
