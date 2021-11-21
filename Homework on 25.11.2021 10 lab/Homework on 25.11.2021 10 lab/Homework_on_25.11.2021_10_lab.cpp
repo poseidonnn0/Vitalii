@@ -8,10 +8,12 @@
 #include "Rectangle.hpp"
 #include <vector>
 
+
 using namespace std::chrono_literals;
 
 int main()
 {
+    setlocale(LC_ALL, "Rus");
     // Инициализация
     srand(time(0));
 
@@ -31,7 +33,9 @@ int main()
    sf::Sprite background(texture);
     const int width = 1227;
     const int height = 823;
-    const int N = 50;
+    int N;
+    std::cout << "Введите количество задаваемых прямоугольников = ";
+    std::cin >> N;
 
     // Создание окна с известными размерами и названием
     sf::RenderWindow window(sf::VideoMode(width, height), L"Первая программа!");
@@ -41,7 +45,7 @@ int main()
 
     for (int i = 0; i <= width; i += width / N)
     {
-        rectangles.push_back(new VK::Rectangle(i, height, 10, 5, rand() % 8 + 1)); // a = rand() дает от 0 до 32767, a % 5 + 1 // size_X, size_Y отвечают за размеры прямоугольника
+        rectangles.push_back(new VK::Rectangle(i, height, width/(N*1.5), 30, rand() % 8 + 1)); // a = rand() дает от 0 до 32767, a % 5 + 1 // size_X, size_Y отвечают за размеры прямоугольника
     }
 
 
