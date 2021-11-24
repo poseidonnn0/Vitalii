@@ -1,3 +1,5 @@
 # Vitalii
 Homework / C++
-![Image alt](https://github.com/poseidonnn0/Vitalii/raw/main/image/ForGit.png?style=centerme)
+<p align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg">
+</p>
