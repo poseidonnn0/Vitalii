@@ -1,3 +1,3 @@
 # Vitalii
 Homework / C++
-[alt text](image/ForGit.png "C++")
+[Image alt](https://github.com/poseidonnn0/Vitalii/raw/main/image/ForGit.png)
