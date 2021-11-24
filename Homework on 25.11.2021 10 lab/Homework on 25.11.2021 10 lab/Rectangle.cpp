@@ -36,7 +36,7 @@ namespace VK
 			m_shape->setPosition(m_x, m_y);
 		}
 	}
-\
+
 
 	int Rectangle::GetY() { return m_y; }
 
