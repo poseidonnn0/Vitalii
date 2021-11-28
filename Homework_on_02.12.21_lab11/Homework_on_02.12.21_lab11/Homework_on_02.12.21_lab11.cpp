@@ -12,6 +12,11 @@ int main()
 	vec.push_back(device);
 	device = new VK::Device("МКТС", 1); //VK::Device* device1 = new VK::Device("МКТС", 1);
 	vec.push_back(device);	
+	/*
+	Если нужно добавить устройство, то дописать
+	device = new VK::Device("...", ...);
+	Можно реализовать кнопкой
+	*/
 	for (auto& i : vec)
 	{
 		i->Poll();
