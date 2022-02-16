@@ -1,8 +1,6 @@
 ﻿#include <iostream>
 #include <chrono>
 
-int mas[10000000];
-
 class Timer
 {
 private:
