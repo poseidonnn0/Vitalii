@@ -30,21 +30,25 @@ public:
 */
 void bubble_sort(int* mas, int N)
 {
-	for (int i = 0; i < N; i++)
+	for (int i = 1; i < N; i++)
 	{
-		for (int j = 0; j < N - i - 1; j++)
+		if (mas[i] >= mas[i - 1])
 		{
-			if (mas[j] > mas[j + 1])
-			{
-				std::swap(mas[j], mas[j + 1]);
-			}
+			continue;
+		}
+		int j = i - 1;
+		while ((j >= 0) && (mas[j] > mas[j + 1]))
+		{
+			std::swap(mas[j], mas[j + 1]);
+			j--;
 		}
 	}
+
 }
 
-int Medium(int end, int start, int* mas)
+int Medium(int a, int b, int* mas)
 {
-	return (rand() % (start - end + 1) + end);
+	return ((rand() * rand()) % (b-a+1) + a);
 }
 
 
@@ -54,16 +58,16 @@ int Medium(int end, int start, int* mas)
 Средний случай - O(n*log2(n))
 Худший случай - О(n^2)
 */
-void q_sort(int end, int start, int* mas)
+void q_sort(int a, int b, int* mas)
 {
-	if (end >= start)
+	if (a >= b)
 	{
 		return;
 	}
-	int m = Medium(end, start, mas);
+	int m = Medium(a, b, mas);
 	int k = mas[m];
-	int l = end - 1;
-	int r = start + 1;
+	int l = a - 1;
+	int r = b + 1;
 	while (1) // while(true)
 	{
 		do 
@@ -84,8 +88,8 @@ void q_sort(int end, int start, int* mas)
 	}
 	r = l;
 	l--;
-	q_sort(end, l, mas);
-	q_sort(r, start, mas);
+	q_sort(a, l, mas);
+	q_sort(r, b, mas);
 }
 
 
@@ -93,27 +97,42 @@ int main()
 {
 	int N;
 
-	setlocale(LC_ALL, "Russia");
+	setlocale(LC_ALL, "Rus");
 
 	std::cout << "Введите количество переменных для обследования данных: ";
 	std::cin >> N;
-	int* mas = new int[N]; // Создаём динамический массив данных типа int 
+	int* mas_bubble = new int[N]; // Создаём динамический массив данных типа int 
+	int* mas_q = new int[N]; // Создаём динамический массив данных типа int 
 
 	for (int i = 0; i < N; i++)
 	{
-		mas[i] = rand() % 1000+1;
+		mas_bubble[i] = rand() % 1000+1;
+	}
+	for (int i = 0; i < N; i++)
+	{
+		mas_q[i] = rand() % 1000 + 1;
 	}
 
-	int* mas_bubble = mas; // mas for bubble_sort
-	int* mas_q = mas; // mas for q_sort
 
 	Timer bubble_sort_timer;
 	bubble_sort(mas_bubble, N);
 	std::cout << "Затрачено времени при вызове bubble_sort: " << bubble_sort_timer.elapsed() << " секунд, при вызове кол-ва переменных = " << N << '\n' << '\n';
+	for (int i = 0; i < N; i++)
+	{
+		std::cout << mas_bubble[i] << " ";
+	}
+	std::cout << "\n\n";
 	Timer q_sort_timer;
-	q_sort(0, N - 1, mas_q);
-	std::cout << "Затрачено времени при вызове q_sort: " << q_sort_timer.elapsed() << " секунд, при вызове кол-ва переменных = " << N << '\n'; // быстрее!
+	q_sort(0,N-1, mas_q);
+	std::cout << "Затрачено времени при вызове q_sort: " << q_sort_timer.elapsed() << " секунд, при вызове кол-ва переменных = " << N << "\n\n"; // быстрее!
 
-	delete[] mas;
+
+	for (int i = 0; i < N; i++)
+	{
+		std::cout << mas_q[i] << " ";
+ 	}
+
+	delete[] mas_bubble;
+	delete[] mas_q;
 	return 0;
 }
