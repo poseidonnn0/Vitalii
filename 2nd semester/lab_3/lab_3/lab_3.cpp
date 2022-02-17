@@ -65,14 +65,6 @@ double f(double x)
 }
 double Bisection(double start, double end, double ex)
 {
-	if (f(start) == 0)
-	{
-		return start;
-	}
-	if (f(end) == 0)
-	{
-		return end;
-	}
 	while (end - start > ex) // Точность результата
 	{
 		if (f(start) * f((end + start) / 2) == 0)
