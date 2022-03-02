@@ -16,7 +16,7 @@ add_definitions(-DSFML_STATIC)		 # дефайны
 # добавляем директории
 include_directories("/")
 
-add_executable("${PROJECT_NAME}" 1_lab)
+add_executable("${PROJECT_NAME}" 1_lab.cpp)
 											
 target_link_libraries("${PROJECT_NAME}" )
 					  

@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 # добавляем директории
 include_directories("/")
 
-add_executable("${PROJECT_NAME}" lab_3)
+add_executable("${PROJECT_NAME}" lab_3.cpp)
 											
 target_link_libraries("${PROJECT_NAME}" )
 					  
