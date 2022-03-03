@@ -30,7 +30,6 @@ int main()
 	}
 	std::cout << "List_ADD_Last_time = " << t1.elapsed() << '\n';
 	//PRINT(head);
-	//CLEAR(head);
 
 	std::vector<int> mas;
 	Timer t2;
@@ -39,6 +38,7 @@ int main()
 		mas.push_back(777); // Вектор изначально добавляет элементы с конца
 	}
 	std::cout << "mas_time = " << t2.elapsed(); // Быстрее!
+	CLEAR(head);
 	delete head;
 	return 0;
 
