@@ -1,10 +1,6 @@
 ﻿#include "Matrix.hpp"
 namespace math
 {
-// Абстракция
-// Инкапсуляция
-// Использование вне класса
-// Конструктор
 Matrix::Matrix(int n, int m)
 {
 	std::cout << "Constructor" << std::endl;
@@ -108,7 +104,7 @@ std::ostream& operator<<(std::ostream& out, const Matrix& mat)
 	return out;
 }
 
-
+// Определитель матрицы
 int Matrix::Det()
 {
 	if ((m_n == 2) && (m_m == 2))
@@ -125,7 +121,7 @@ int Matrix::Det()
 	}
 }
 
-
+//Транспонирование матрицы
 Matrix Matrix::transposition()
 {
 	Matrix tmp(m_n, m_m);
@@ -138,7 +134,7 @@ Matrix Matrix::transposition()
 	}
 	return tmp;
 }
-
+//Обратная матрица
 Matrix Matrix::inv()
 {
 	Matrix tmp(m_n, m_m);
