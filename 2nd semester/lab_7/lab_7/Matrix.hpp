@@ -22,7 +22,7 @@ public:
 
 	// Оператор сложения  C += A <=> C = C + A
 	Matrix operator+=(const Matrix& mat);
-	// Оператор сложения
+	// Оператор умножения
 	Matrix operator*(const Matrix& mat);
 
 	// Деструктор
