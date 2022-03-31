@@ -129,14 +129,14 @@ public:
 
 		return tmp;
 	}
-	// template <typename K>  ? --> Matrix<T,N,M>
-	T Det() // int Det // QUESTION
+	
+	T Det() 
 	{
-		if ((m_n == 2) && (m_m == 2))
+		if constexpr ((N == 2) && (M == 2))
 		{
 			return (m_mat[0][0] * m_mat[1][1] - m_mat[1][0] * m_mat[0][1]);
 		}
-		else if ((m_n == 3) && (m_m == 3))
+		if constexpr ((N == 3) && (M == 3))
 		{
 			return (m_mat[0][0] * (m_mat[1][1] * m_mat[2][2] - m_mat[2][1] * m_mat[1][2]) - (m_mat[0][1] * (m_mat[1][0] * m_mat[2][2] - m_mat[2][0] * m_mat[1][2])) + (m_mat[0][2] * (m_mat[1][0] * m_mat[2][1] - m_mat[1][1] * m_mat[2][0])));
 		}
@@ -163,28 +163,28 @@ public:
 	Matrix inv()
 	{
 		Matrix<T, N, M> tmp;
-		for (int i = 0; i < m_n; i++)
+		for (int i = 0; i < N; i++)
 		{
-			for (int j = 0; j < m_m; j++)
+			for (int j = 0; j < M; j++)
 			{
 				tmp.m_mat[i][j] = 0;
 			}
 		}
-		if ((m_n == 2 && m_m == 2) || (m_n == 3 && m_m == 3))
+		if ((N == 2 && M == 2) || (N == 3 && M == 3))
 		{
 			int det = Det();
 			if (det == 0) {
 				std::cout << "Обратной матрицы не существует, Det = 0, (определитель равен 0)" << std::endl;
 				return tmp;
 			}
-			if (m_n == 2) {
+			if (N == 2) {
 				tmp.m_mat[0][0] = m_mat[1][1] / det;
 				tmp.m_mat[0][1] = -m_mat[0][1] / det;
 				tmp.m_mat[1][0] = -m_mat[1][0] / det;
 				tmp.m_mat[1][1] = m_mat[0][0] / det;
 				return tmp;
 			}
-			if (m_n == 3) {
+			if (N == 3) {
 				tmp.m_mat[0][0] = (m_mat[1][1] * m_mat[2][2] - m_mat[2][1] * m_mat[1][2]) / det;
 				tmp.m_mat[0][1] = -(m_mat[0][1] * m_mat[2][2] - m_mat[2][1] * m_mat[0][2]) / det;
 				tmp.m_mat[0][2] = (m_mat[0][1] * m_mat[1][2] - m_mat[1][1] * m_mat[0][2]) / det;
@@ -239,7 +239,7 @@ using Vec2i = Matrix<int, 2, 1>;
 using Vec2d = Matrix<double, 2, 1>;
 using Mat22i = Matrix<int, 2, 2>;
 using Mat22d = Matrix<double, 2, 2>;
-using Mat33i = Matrix<double, 3, 3>;
+using Mat33i = Matrix<int, 3, 3>;
 using Mat33d = Matrix<double, 3, 3>;
 
 }
