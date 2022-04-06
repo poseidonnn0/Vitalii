@@ -172,7 +172,7 @@ public:
 		}
 		if ((N == 2 && M == 2) || (N == 3 && M == 3))
 		{
-			int det = Det();
+			T det = Det();
 			if (det == 0) {
 				std::cout << "Обратной матрицы не существует, Det = 0, (определитель равен 0)" << std::endl;
 				return tmp;
