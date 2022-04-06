@@ -173,18 +173,21 @@ public:
 		if ((N == 2 && M == 2) || (N == 3 && M == 3))
 		{
 			T det = Det();
-			if (det == 0) {
-				std::cout << "Обратной матрицы не существует, Det = 0, (определитель равен 0)" << std::endl;
-				return tmp;
+			if (det == 0) 
+			{
+				throw std::exception ("Zero determinant!");
 			}
-			if (N == 2) {
+
+			std::cout << "After throw exception in inv function!" << std::endl;
+			if constexpr (N == 2) 
+			{
 				tmp.m_mat[0][0] = m_mat[1][1] / det;
 				tmp.m_mat[0][1] = -m_mat[0][1] / det;
 				tmp.m_mat[1][0] = -m_mat[1][0] / det;
 				tmp.m_mat[1][1] = m_mat[0][0] / det;
 				return tmp;
 			}
-			if (N == 3) {
+			if constexpr (N == 3) {
 				tmp.m_mat[0][0] = (m_mat[1][1] * m_mat[2][2] - m_mat[2][1] * m_mat[1][2]) / det;
 				tmp.m_mat[0][1] = -(m_mat[0][1] * m_mat[2][2] - m_mat[2][1] * m_mat[0][2]) / det;
 				tmp.m_mat[0][2] = (m_mat[0][1] * m_mat[1][2] - m_mat[1][1] * m_mat[0][2]) / det;

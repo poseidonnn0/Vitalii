@@ -87,6 +87,15 @@ int main()
 		} });
 		auto B = A.inv();
 
+		try
+		{
+			std::cout << B << std::endl;
+			std::cout << "After inv in main" << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 		assert(B.get(0, 0) == -5);
 		assert(B.get(1, 0) == 3);
 	}
