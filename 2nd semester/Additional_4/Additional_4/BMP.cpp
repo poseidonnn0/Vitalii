@@ -203,13 +203,13 @@ namespace image
 			}
 		}
 
-		//Write("C://Users//Vitaliy//OneDrive//Documents//Git//Repositories//Vitalii//2nd semester//Additional_4//Additional_4//out.bmp");
+		Write("C://Users//Vitaliy//OneDrive//Documents//Git//Repositories//Vitalii//2nd semester//Additional_4//Additional_4//out.bmp");
 
 
-		std::ofstream out("C://Users//Vitaliy//OneDrive//Documents//Git//Repositories//Vitalii//2nd semester//Additional_4//Additional_4//out.bmp");
+		//std::ofstream out("C://Users//Vitaliy//OneDrive//Documents//Git//Repositories//Vitalii//2nd semester//Additional_4//Additional_4//out.bmp");
 		pic.close();          // Закрываем файловый поток
 		txt.close();
-		out.close();
+		//out.close();
 	}
 
 	void BMP::Decrypt()
@@ -222,14 +222,14 @@ namespace image
 		}
 		while (getline(pic, stemp))
 	    {
-			pstr += stemp;
+			pstr1 += stemp;
 			stemp.clear();
 		}
 
-		std::cout << pstr << std::endl;
-		int pl = pstr.size();
+		std::cout << pstr1 << std::endl;
+		int pl = pstr1.size();
 		std::cout << "\n==========\npl=" << pl << "\n==================\n";
-		int tl = pstr[6] ^ pstr[7]; // Извлекаем длину скрытой информации из зарезервированной области
+		int tl = pstr1[6] ^ pstr1[7]; // Извлекаем длину скрытой информации из зарезервированной области
 		std::cout << "\n==========\ntl=" << tl << "\n==================\n";
 		//int ty = (pl - py) / (tl * 8);       // Расчетный интервал
 		std::cout << "\n==========\nty=" << ty << "\n==================\n";
@@ -244,7 +244,7 @@ namespace image
 			for (int k = 0; k != 8; k++)
 			{
 				temp <<= 1;
-				temp += std::bitset<8>(pstr[i])[0];
+				temp += std::bitset<8>(pstr1[i])[0];
 				i += ty;
 			}
 			out << temp;
@@ -253,6 +253,7 @@ namespace image
 		pic.close();          // Закрываем файловый поток
 		out.close();
 	}
+
 
 
 }
