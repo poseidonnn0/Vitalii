@@ -222,14 +222,14 @@ namespace image
 		}
 		while (getline(pic, stemp))
 	    {
-			pstr1 += stemp;
+			pstr += stemp;
 			stemp.clear();
 		}
 
-		std::cout << pstr1 << std::endl;
-		int pl = pstr1.size();
+		std::cout << pstr << std::endl;
+		int pl = pstr.size();
 		std::cout << "\n==========\npl=" << pl << "\n==================\n";
-		int tl = pstr1[6] ^ pstr1[7]; // Извлекаем длину скрытой информации из зарезервированной области
+		int tl = pstr[6] ^ pstr[7]; // Извлекаем длину скрытой информации из зарезервированной области
 		std::cout << "\n==========\ntl=" << tl << "\n==================\n";
 		//int ty = (pl - py) / (tl * 8);       // Расчетный интервал
 		std::cout << "\n==========\nty=" << ty << "\n==================\n";
@@ -244,12 +244,11 @@ namespace image
 			for (int k = 0; k != 8; k++)
 			{
 				temp <<= 1;
-				temp += std::bitset<8>(pstr1[i])[0];
+				temp += std::bitset<8>(pstr[i])[0];
 				i += ty;
 			}
 			out << temp;
 		}
-
 		pic.close();          // Закрываем файловый поток
 		out.close();
 	}
