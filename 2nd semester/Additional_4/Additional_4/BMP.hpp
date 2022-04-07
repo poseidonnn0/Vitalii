@@ -13,6 +13,7 @@
 #include <string>
 #include <bitset>
 #include <cstdlib>
+#include <stdio.h>
 namespace image
 {
 #pragma pack(1) // Отключить выравнивание
@@ -75,9 +76,14 @@ private:
     Pixel** pixels;
 
     const int py = 54;
+    std::string stemp;
     std::string pstr;
     std::string tstr;
-    std::string stemp;
+    std::string pstr1;
+    std::string stemp1;
+    int ty;
+
+
 };
 
 }

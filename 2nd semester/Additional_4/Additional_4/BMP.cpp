@@ -173,6 +173,7 @@ namespace image
 		}
 		int pl = pstr.size();
 		int tl = tstr.size();
+		//std::cout << "\n==========\ntl=" << tl << "\n==================\n";
 
 		if (tl > 100)
 		{
@@ -186,8 +187,8 @@ namespace image
 			return;
 		}
 
-		int ty = (pl - py) / (tl * 8); // Расчетный интервал
-
+		ty = (pl - py) / (tl * 8); // Расчетный интервал
+		//srand(0);
 		int tp = rand() % 256;
 		pstr[6] = tl ^ tp;
 		pstr[7] = tp;            // Записываем длину скрытой информации в зарезервированной области
@@ -218,14 +219,17 @@ namespace image
 		}
 
 		while (getline(pic, stemp))
-		{
+	    {
 			pstr += stemp;
 			stemp.clear();
 		}
-		//std::cout << pstr << std::endl;
+		std::cout << pstr << std::endl;
 		int pl = pstr.size();
+		std::cout << "\n==========\npl=" << pl << "\n==================\n";
 		int tl = pstr[6] ^ pstr[7]; // Извлекаем длину скрытой информации из зарезервированной области
-		int ty = (pl - py) / (tl * 8);       // Расчетный интервал
+		std::cout << "\n==========\ntl=" << tl << "\n==================\n";
+		//int ty = (pl - py) / (tl * 8);       // Расчетный интервал
+		std::cout << "\n==========\nty=" << ty << "\n==================\n";
 
 		char temp = 0;
 
@@ -244,6 +248,7 @@ namespace image
 		}
 
 		pic.close();          // Закрываем файловый поток
+		out.close();
 	}
 
 
