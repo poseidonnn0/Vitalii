@@ -203,10 +203,13 @@ namespace image
 			}
 		}
 
-		Write("C://Users//Vitaliy//OneDrive//Documents//Git//Repositories//Vitalii//2nd semester//Additional_4//Additional_4//out.bmp");
+		//Write("C://Users//Vitaliy//OneDrive//Documents//Git//Repositories//Vitalii//2nd semester//Additional_4//Additional_4//out.bmp");
 
+
+		std::ofstream out("C://Users//Vitaliy//OneDrive//Documents//Git//Repositories//Vitalii//2nd semester//Additional_4//Additional_4//out.bmp");
 		pic.close();          // Закрываем файловый поток
 		txt.close();
+		out.close();
 	}
 
 	void BMP::Decrypt()
@@ -217,12 +220,12 @@ namespace image
 			perror("Ошибка открытия файла");
 			return;
 		}
-
 		while (getline(pic, stemp))
 	    {
 			pstr += stemp;
 			stemp.clear();
 		}
+
 		std::cout << pstr << std::endl;
 		int pl = pstr.size();
 		std::cout << "\n==========\npl=" << pl << "\n==================\n";
