@@ -6,7 +6,7 @@ int main()
     
     img.Read("photo.bmp");
 
-    //img.Encrypt();
+    img.Encrypt();
 
     img.Decrypt();
 
