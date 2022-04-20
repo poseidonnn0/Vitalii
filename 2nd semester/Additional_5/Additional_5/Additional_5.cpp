@@ -40,17 +40,17 @@ protected: // protected
 
 int main()
 {
-	Foo* f = new Foo(100);
-	Foo* b = new Bar(200);
+	//Foo* f = new Foo(100);
+	//Foo* b = new Bar(200);
+	
+	std::unique_ptr<Foo> f(new Foo(100));
+	std::unique_ptr<Foo> b(new Bar(200));
 
 	//(static_cast<Bar*>(f))->b; 
 
 	//*f = *b; --> ДОДЕЛАТЬ 
 
 	//f->p = new Bar(200); 
-
-	delete f;
-	delete b;
 
 	return 0;
 }
