@@ -14,6 +14,19 @@ public:
 		delete[] i; // delete[] - удаляем массив, а не элемент 
 	}
 
+	Foo(const Foo& A) : i(A.i)
+	{
+		std::cout << "Copy Bar\n";
+	}
+
+	Foo& operator=(const Foo& A) 
+	{
+		std::cout << "\nOperator = \n";
+	
+
+		return *this;
+	}
+
 	//Foo* p; Нет деструктора 
 
 protected: // protected 
@@ -29,6 +42,7 @@ public:
 		std::cout << "\nBar const\n";
 		i = new char[j];
 	}
+
 	virtual ~Bar() // + virtual 
 	{
 		std::cout << "\nBar destr\n";
@@ -36,6 +50,8 @@ public:
 	}
 protected: // protected 
 	char* i;
+private:
+	Bar(const Bar& B) = delete;
 };
 
 int main()
@@ -48,9 +64,14 @@ int main()
 
 	//(static_cast<Bar*>(f))->b; 
 
-	//*f = *b; --> ДОДЕЛАТЬ 
+	//f = b;
+	*f = *b; //--> ДОДЕЛАТЬ 
 
 	//f->p = new Bar(200); 
+
+
+	//delete f;
+	//delete b;
 
 	return 0;
 }
