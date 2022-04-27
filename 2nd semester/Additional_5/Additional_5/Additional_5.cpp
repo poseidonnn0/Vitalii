@@ -1,5 +1,5 @@
 ﻿#include <iostream> 
-
+#include <memory>
 class Foo
 {
 public:
@@ -73,8 +73,9 @@ private:
 
 int main()
 {
-	std::unique_ptr<Foo> f(new Foo(2));
-	std::unique_ptr<Foo> b(new Bar(3));
+	
+	std::unique_ptr<Foo> f = std::make_unique<Foo>(2);
+	std::unique_ptr<Foo> b = std::make_unique<Bar>(3);
 
 	f->Write();
 	std::cout << "==========\n==========";
