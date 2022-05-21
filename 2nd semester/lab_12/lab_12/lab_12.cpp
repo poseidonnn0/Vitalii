@@ -3,6 +3,8 @@
 #include <list>
 
 class Student;
+class Teacher;
+
 class Teacher
 {
 public:
@@ -33,21 +35,7 @@ public:
 		m_students.push_back(stud);
 	}
 
-	void getAllStudents() 
-	{
-		if (!m_students.empty()) 
-		{
-			std::cout << "Все студенты учителя " + m_name + ": " << std::endl;
-			for (auto& stud : m_students)
-			{
-				std::cout << stud->getName() << std::endl; // не работает! доделать
-			}
-		}
-		else 
-		{
-			std::cout << "Учитель " + m_name + "не имеет учеников" << std::endl;
-		}
-	}
+	void getAllStudents();
 
 	const std::string& getName() const 
 	{ 
@@ -115,6 +103,22 @@ void partnerUp(std::shared_ptr<Teacher>& p1, std::shared_ptr<Student>& p2)
 }
 
 
+void Teacher::getAllStudents()
+{
+	if (!m_students.empty())
+	{
+		std::cout << "Все студенты учителя " + m_name + ": " << std::endl;
+		for (auto& stud : m_students)
+		{
+			std::cout << stud->getName() << std::endl; // не работает! доделать
+		}
+	}
+	else
+	{
+		std::cout << "Учитель " + m_name + "не имеет учеников" << std::endl;
+	}
+}
+
 int main()
 {
 	setlocale(LC_ALL, "Russia");
@@ -123,7 +127,7 @@ int main()
 	auto student2{ std::make_shared<Student>("Ricky_2") };
 	auto student3{ std::make_shared<Student>("Ricky_3") };
 
-	//ricky->getName();
+	teacher->getName();
 
 	partnerUp(teacher, student);
 	partnerUp(teacher, student2);
