@@ -2,12 +2,13 @@
 #include <memory>
 class Foo
 {
+
 public:
 	Foo(int j)
 	{
 		l = j;
 		std::cout << "\nFoo const\n";
-		/*this->*/i = new int[j];
+		i = new int[j];
 
 		for (int z = 0; z < l; z++)
 		{
@@ -30,17 +31,19 @@ public:
 		delete[] i; // delete[] - удаляем массив, а не элемент 
 	}
 
-	Foo(const Foo& A) : i(A.i)
-	{
-		std::cout << "Copy Bar\n";
-	}
-
 	Foo& operator=(const Foo& A)
 	{
 		std::cout << "\nOperator = \n";
 	
 		return *this;
 	}
+
+	Foo(const Foo& A) :
+		i(A.i)
+	{
+		std::cout << "Copy Bar\n";
+	}
+
 
 	friend std::ostream& operator<<(std::ostream& os, const int** i)
 	{
@@ -49,6 +52,7 @@ public:
 protected: // protected 
 	int* i;
 	int l;
+
 };
 
 class Bar : public Foo
@@ -68,7 +72,7 @@ public:
 protected: // protected 
 	char* i;
 private:
-	Bar(const Bar& B) = delete;
+	//Bar(const Bar& B) = delete;
 };
 
 int main()
@@ -86,6 +90,12 @@ int main()
 	f->Write();
 	std::cout << "==========\n==========";
 	b->Write();
+
+
+	Foo f1(1000);
+	Foo* p = new Foo(0);
+	*p = f1;
+	//Foo f2(f1);
 
 	return 0;
 }
