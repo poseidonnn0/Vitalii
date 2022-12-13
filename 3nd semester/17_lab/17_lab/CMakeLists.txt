@@ -17,11 +17,8 @@ include_directories("/")
 add_executable("${PROJECT_NAME}" 17_lab.cpp 
 								BinaryTree.cpp
 								BinaryTree.hpp
-								Options.cpp
-								Options.hpp
+
 									)
 											
 target_link_libraries("${PROJECT_NAME}" )
-					  
-file(COPY "input.txt" DESTINATION "/")
 
