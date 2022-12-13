@@ -3,7 +3,7 @@
 
 namespace Tree
 {
-Elem* MAKE(int data, Elem* p)
+Elem* MAKE(int data, Elem* p) // Указатель на создание(ф-ию) дерева
 {
 	Elem* q = new Elem;
 	q->data = data;
@@ -13,7 +13,7 @@ Elem* MAKE(int data, Elem* p)
 	return q;
 }
 
-void StackByPass(Elem*& root)
+void StackByPass(Elem*& root)  // Не рекурсивный прямой обход(стек)
 {
 	std::stack<Elem*> s;
 	s.push(nullptr);
@@ -82,7 +82,7 @@ void EndBypass(Elem*& root) // концевой обход
 	}
 }
 
-void ADD(int data, Elem*& root)
+void ADD(int data, Elem*& root) // Добавить элемент в дерево
 {
 	if (root == nullptr)
 	{
@@ -108,7 +108,7 @@ void ADD(int data, Elem*& root)
 		v->right = u;
 }
 
-void PASS(Elem* v)
+void PASS(Elem* v) // Вывести поочерёдно все элементы дерева
 {
 	if (v == nullptr)
 		return;
@@ -117,7 +117,7 @@ void PASS(Elem* v)
 	PASS(v->right);
 }
 
-Elem* SEARCH(int data, Elem* v)  
+Elem* SEARCH(int data, Elem* v)  // поиск элемента в дереве
 {
 	if (v == nullptr)
 		return v;
@@ -128,7 +128,7 @@ Elem* SEARCH(int data, Elem* v)
 	else
 		return SEARCH(data, v->right);
 }
-void SearchCount(int data, Elem* v, int count)
+void SearchCount(int data, Elem* v, int count)  // подсчёт найденных слов в дереве
 {
 	if (v == nullptr)
 	{
@@ -152,7 +152,7 @@ void SearchCount(int data, Elem* v, int count)
 
 
 
-void DELETE(int data, Elem*& root)
+void DELETE(int data, Elem*& root) // удалить элемент в дереве
 {
 	Elem* u = SEARCH(data, root);
 	if (u == nullptr)
@@ -217,7 +217,7 @@ void DELETE(int data, Elem*& root)
 	delete u;
 }
 
-void CLEAR(Elem*& v)
+void CLEAR(Elem*& v)  // очистить всё дерево, включая указатели
 {
 	if (v == nullptr)
 		return;
