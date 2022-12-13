@@ -8,13 +8,13 @@
 int i_1 = 0;
 namespace hash
 {
-	int Hashfunc(int a) 
+	int Hashfunc(int a)  // Сама хэш-функция
 	{
 		int b = a % N + i_1;
 		return b;
 	}
 
-	void HashTable(int mas[N][N], int a) 
+	void HashTable(int mas[N][N], int a)   // заполнение матрицы хэширования, но уже табличным методом, а не списком
 	{
 		while (true) 
 		{
@@ -33,7 +33,7 @@ namespace hash
 		}
 	}
 
-	void out(int mas[N][N]) 
+	void out(int mas[N][N]) // вывод того, что было хешировано
 	{
 		for (int i = 0; i < N; i++) 
 		{
@@ -48,7 +48,7 @@ namespace hash
 		}
 	}
 
-	void foundNubmers(int mas[N][N], int k) 
+	void foundNubmers(int mas[N][N], int k) // поиск нескольких номеров в хэш-таблице
 	{
 		for (int i = 0; i < N; i++) 
 		{

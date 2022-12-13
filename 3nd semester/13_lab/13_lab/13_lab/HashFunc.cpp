@@ -7,13 +7,13 @@
 #include "HashFunc.h"
 namespace hash
 {
-	int Hashfunc(int a) 
+	int Hashfunc(int a) // Сама хэш-функция
 	{
 		int b = a % N;
 		return b;
 	}
 
-	void HashTable(int mas[N][N], int a) 
+	void HashTable(int mas[N][N], int a) // заполнение матрицы хэширования
 	{
 		int b = Hashfunc(a);
 		if (mas[b][0] == 0) 
@@ -33,7 +33,7 @@ namespace hash
 		}
 	}
 
-	void out(int mas[N][N]) 
+	void out(int mas[N][N]) // вывод того, что было хешировано
 	{
 		for (int i = 0; i < N; i++) 
 		{
@@ -48,13 +48,13 @@ namespace hash
 		}
 	}
 
-	int foundN(int y) 
+	int foundN(int y) // поиск какого-то элемента в хэш-функции
 	{
 		int a = Hashfunc(y);
 		return a;
 	}
 
-	void foundNubmers(int mas[N][N], int k) 
+	void foundNubmers(int mas[N][N], int k) // поиск нескольких номеров
 	{
 		for (int i = 0; i < N; i++) 
 		{
